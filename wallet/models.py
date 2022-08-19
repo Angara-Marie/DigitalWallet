@@ -15,7 +15,7 @@ class Customer(models.Model):
    id_number = models.IntegerField()
    nationality = models.CharField(max_length=15,null=True)
    date_of_registeration = models.DateTimeField(default=timezone.now)
-   # profile_picture = models.ImageField()
+   profile_picture = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
 
 class Wallet(models.Model):
@@ -41,7 +41,6 @@ class Transaction(models.Model):
    transaction_amount = models.IntegerField()
    transaction_number = models.IntegerField()
    transaction_type = models.CharField(max_length=10,null=True)
-   receipt = models.ForeignKey('Receipt', on_delete=models.CASCADE, related_name='Transaction_receipt')
    transaction_charge = models.IntegerField ()
    origin_account = models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_origin')
    destination_account = models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_destination')
@@ -69,7 +68,7 @@ class Third_party(models.Model):
 
 
 class Notifications(models.Model):
-   message = models.CharField(max_length=150,null=True)
+   message = models.TextField(default= '')
    title = models.CharField(max_length=20,null=True)
    recepient = models.ForeignKey('Customer', on_delete=models.CASCADE, related_name='Notifications_recepient')
    status = models.CharField(max_length=10,null=True)
