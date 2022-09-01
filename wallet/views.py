@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import CustomerLoanForm, CustomerNotificationsForm, CustomerReceiptForm, CustomerRegistrationForm, CustomerRewardForm, CustomerThird_partyForm
+from .forms import CustomerCurrencyForm, CustomerLoanForm, CustomerNotificationsForm, CustomerReceiptForm, CustomerRegistrationForm, CustomerRewardForm, CustomerThird_partyForm
 from .forms import CustomerWalletForm
 from .forms import CustomerAccountForm
 from .forms import CustomerTransactionForm
@@ -56,6 +56,6 @@ def customer_reward(request):
     {"form":form})     
 
 def customer_currency(request):
-    form = CustomerRewardForm()
+    form = CustomerCurrencyForm()
     return render(request,"wallet/customer_currency.html",
     {"form":form})         
