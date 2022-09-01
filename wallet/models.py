@@ -32,7 +32,8 @@ class Account(models.Model):
    account_type = models.CharField(max_length=10,null=True)
    balance = models.IntegerField()
    account_name = models.CharField(max_length=15,null=True)
-   wallet = models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name='Account_wallet')
+   # customer = models.ForeignKey('Customer', on_delete=models.CASCADE, related_name='Account_customer')
+   wallet =models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name='Wallet_account')
 
 
 class Transaction(models.Model):
@@ -107,3 +108,12 @@ class Currency(models.Model):
    country_of_origin = models.CharField(max_length=10,null=True)
    amount = models.IntegerField()
    symbol = models.CharField(max_length=5,null=True)
+
+# class  AccountEntry(models.Model):
+#    account = models.ForeignKey('Account', on_delete=models.CASCADE, related_name='account_entries')
+#    entry_date = models.DateTimeField(default=timezone.now) 
+#    debit_amount = models.DecimalField(max_digits=9 , decimal_places=2)
+#    credit_amount = models.DecimalField(max_digits=9 , decimal_places=2)
+#    currency = models.ForeignKey('Currency', on_delete=models.CASCADE, related_name= 'accountentry_currency')
+#    description = models.CharField(max_length=255, null=True, blank=True)
+
