@@ -79,7 +79,7 @@ def customer_notifications(request):
     {"form":form})  
 
 def customer_receipts(request):
-    if form.method == "POST":
+    if request.method == "POST":
         form = forms.CustomerReceiptForm(request.POST)
         if form.is_valid():
             form.save()
@@ -89,7 +89,7 @@ def customer_receipts(request):
     {"form":form})    
 
 def customer_loan(request):
-    if form.method == "POST":
+    if request.method == "POST":
         form = forms.CustomerLoanForm(request.POST)
         if form.is_valid():
             form.save()
@@ -99,7 +99,7 @@ def customer_loan(request):
     {"form":form})     
 
 def customer_reward(request):
-    if form.method == "POST":
+    if request.method == "POST":
         form = forms.CustomerRewardForm(request.POST)
         if form.is_valid():
             form.save()
@@ -109,7 +109,7 @@ def customer_reward(request):
     {"form":form})     
 
 def customer_currency(request):
-    if form.method == "POST":
+    if request.method == "POST":
         form = forms.CustomerCurrencyForm(request.POST)
         if form.is_valid():
             form.save()
