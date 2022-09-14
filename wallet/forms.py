@@ -1,7 +1,5 @@
 # importing the library called forms
 from dataclasses import field, fields
-from pyexpat import model
-from django import forms
 from .models import Account, Card, Currency, Customer, Loan, Notifications, Receipt, Reward, Third_party, Transaction, Wallet
 from django.forms import ModelForm
 #creating a class to represent the form we want to create

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>Name</td>
+            <td>Loan ID</td>
+            <td>Loan Status</td>
+            <td>Date</td>
+            <td>Due date</td>
+        </th>
+        {% for loan in loans%}
+        <tr>
+            <td>{{loan.name}}</td>
+            <td>{{loan.loan_id}}</td>
+            <td>{{loan.loan_status}}</td>
+            <td>{{loan.date}}</td>
+            <td>{{loan.payment_due_date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

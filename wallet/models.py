@@ -6,12 +6,12 @@ from django.utils import timezone
 class Customer(models.Model):
    first_name = models.CharField(max_length= 20,null=True)
    last_name = models.CharField(max_length= 20,null=True)
-   address = models.TextField(default='')
+   address = models.CharField(max_length= 20, null=True)
    email = models.EmailField()
    phone_number = models.CharField(max_length= 15,null=True)
    gender = models.CharField(max_length= 10,null=True)
    age = models.PositiveSmallIntegerField()
-   password = models.CharField(max_length=10,null=True)
+   password = models.CharField(max_length=15,null=True)
    id_number = models.IntegerField()
    nationality = models.CharField(max_length=15,null=True)
    date_of_registeration = models.DateTimeField(default=timezone.now)
@@ -19,12 +19,12 @@ class Customer(models.Model):
 
 
 class Wallet(models.Model):
-   balance = models.IntegerField()
    customer = models.ForeignKey('Customer', on_delete=models.CASCADE, related_name='Wallet_customer')
-   date_created = models.DateTimeField(default=timezone.now)
+   balance = models.IntegerField()
    status = models.CharField(max_length=10,null=True)
    pin = models.IntegerField()
    currency = models.ForeignKey('Currency', on_delete=models.CASCADE, related_name='Wallet_currency')
+   date_created = models.DateTimeField(default=timezone.now)
 
 
 class Account(models.Model):
@@ -69,8 +69,8 @@ class Third_party(models.Model):
 
 
 class Notifications(models.Model):
-   message = models.TextField(default= '')
    title = models.CharField(max_length=20,null=True)
+   message = models.TextField(default= '')
    recepient = models.ForeignKey('Customer', on_delete=models.CASCADE, related_name='Notifications_recepient')
    status = models.CharField(max_length=10,null=True)
    date = models.DateTimeField(default=timezone.now)

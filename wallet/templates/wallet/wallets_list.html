@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <td>Customer</td>
+            <td>Balance</td>
+            <td>Status</td>
+        </th>
+        {% for wallet in wallets%}
+        <tr>
+            <td>{{wallet.customer}}</td>
+            <td>{{wallet.balance}}</td>
+            <td>{{wallet.status}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
