@@ -1,6 +1,4 @@
 from django.urls import path
-# from .views import customer_account, customer_card, customer_currency, customer_loan, customer_notifications, customer_receipts, customer_reward, customer_thirdparty, customer_transaction, register_customer
-# from  .views import customer_wallet
 from  . import views
 
 urlpatterns = [
@@ -26,6 +24,20 @@ urlpatterns = [
     path("loans/",views.list_loans, name="loans_list"),
     path("rewards/",views.list_rewards, name="rewards_list"),
     path("currencies/",views.list_currencies, name="currencies_list"),
+    path("customers/<int:id>/", views.customer_profile, name="customer_profile"),
+    path("customers/edit/<int:id>/", views.edit_customer, name="edit_customer"),
+    path("wallets/<int:id>/", views.wallet_profile, name="wallet_profile"),
+    path("wallets/edit/<int:id>/", views.edit_wallet, name="edit_wallet"),
+    path("accounts/<int:id>/", views.account_profile, name="wallet_profile"),
+    path("accounts/edit/<int:id>/", views.edit_account, name="edit_account"),
+    path("cards/<int:id>/", views.card_profile, name="wallet_profile"),
+    path("cards/edit/<int:id>/", views.edit_card, name="edit_account"),
+    path("transactions/<int:id>/", views.transaction_profile, name="wallet_profile"),
+    path("tranasactions/edit/<int:id>/", views.edit_transaction, name="edit_account"),
+    path("receipts/<int:id>/", views.receipt_profile, name="wallet_profile"),
+    path("receipts/edit/<int:id>/", views.edit_receipt, name="edit_account"),
+
+
 
 
     
