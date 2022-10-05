@@ -245,7 +245,7 @@ def transaction_profile(request, id):
     return render(request, "wallet/transaction_profile.html", 
     {"transaction":transaction})        
 
-def edit_transacation(request, id):
+def edit_transaction(request, id):
     transaction = models.Transaction. objects.get(id=id)
     if request.method == "POST":
         form = forms.CustomerTransactionForm(request.POST,
