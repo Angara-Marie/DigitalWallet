@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from wallet.models import Account, Card, Customer, Transaction, Wallet
-from .serializers import AccountSerializer, CardSerializer, CustomerSerializer, TransactionSerializer, WalletSerializer
+from wallet.models import Account, Card, Customer, Notifications, Receipt, Transaction, Wallet,Loan
+from .serializers import AccountSerializer, CardSerializer, CustomerSerializer, LoanSerializer, NotificationsSerializer, ReceiptSerializer, TransactionSerializer, WalletSerializer
 
 # Create your views here.
 
@@ -23,5 +23,17 @@ class CardViewSets(viewsets.ModelViewSet):
 
 class TransactionViewSets(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
-    serializer_class = TransactionSerializer       
+    serializer_class = TransactionSerializer  
+
+class LoanViewSets(viewsets.ModelViewSet):
+    queryset = Loan.objects.all()
+    serializer_class = LoanSerializer
+
+class ReceiptViewSets(viewsets.ModelViewSet):
+    queryset = Receipt.objects.all()
+    serializer_class = ReceiptSerializer
+
+class NotificationsViewSets(viewsets.ModelViewSet):
+    queryset = Notifications.objects.all()
+    serializer_class = NotificationsSerializer        
 

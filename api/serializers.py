@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from wallet.models import Account, Card, Customer, Transaction, Wallet
+from wallet.models import Account, Card, Customer, Loan, Notifications, Receipt, Transaction, Wallet
 
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,5 +27,20 @@ class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction 
         fields = ("transaction_REF", "wallet", "transaction_number", "origin_account",
-         "destination_account", "transaction_amount", "transaction_charge", "date")  
+          "destination_account", "transaction_amount", "transaction_charge", "date")  
 
+class LoanSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Loan
+        fields = ("name","wallet", "loan_id", "loan_status", "loan_type", "amount", "loan_balance",
+        "date","payment_due_date", "interest_rate", "guarantor")
+
+class ReceiptSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Receipt
+        fields = ("transaction", "receipt_type", "receipt_date", "receipt_file", "total_amount")
+
+class NotificationsSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model = Notifications 
+        fields = ("title", "message", "recepient", "status", "date")   
