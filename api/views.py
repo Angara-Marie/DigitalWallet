@@ -25,15 +25,6 @@ class AccountViewSets(viewsets.ModelViewSet):
 
 
 class AccountDepositView(views.APIView):
-   """
-   This class allows deposit of funds to an account.
-   Accepts this JSON data
-   {
-       "account_id": 123,
-       "amount": 1000
-   }
-   This API needs Authentication and Permissions to be added
-   """
    def post(self, request, format=None):       
        account_id = request.data["account_id"]
        amount = request.data["amount"]
@@ -46,15 +37,6 @@ class AccountDepositView(views.APIView):
        return Response(message, status=status)
 
 class AccountWithdrawView(views.APIView):
-   """
-   This class allows withdraw of funds to an account.
-   Accepts this JSON data
-   {
-       "account_id": 123,
-       "amount": 1000
-   }
-   This API needs Authentication and Permissions to be added
-   """
    def post(self, request, format=None):       
        account_id = request.data["account_id"]
        amount = request.data["amount"]
